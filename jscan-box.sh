@@ -29,10 +29,15 @@ sudo yum -y update
 	wget https://s3-ap-northeast-1.amazonaws.com/devarchi33-jscan/J-Scan-PreInstall.zip
 	unzip J-Scan-PreInstall.zip
 	sudo tar xvfz mysql-5.6.14.tar.gz
+	sudo chown -R root:root mysql-5.6.14/
 	sudo tar xvfz httpd-2.4.6.tar.gz
+	sudo chown -R root:root httpd-2.4.6/
 	sudo tar xvfz php-5.5.5.tar.gz
+	sudo chown -R root:root php-5.5.5/
 	sudo tar xvfz apr-1.4.8.tar.gz
+	sudo chown -R root:root apr-1.4.8/
 	sudo tar xvfz apr-util-1.5.2.tar.gz
+	sudo chown -R root:root apr-util-1.5.2/
 
 #파일 정리.
 	mkdir setup && mv *.tar.gz ./setup && rm -rf *.zip && mv *.rpm ./setup
