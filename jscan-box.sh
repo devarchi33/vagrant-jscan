@@ -1,7 +1,6 @@
 #!/bin/bash
 
 sudo yum -y update
-mkdir scripts && mv *.sh ./scripts
 
 #엔터프라이즈 추가 패키지 설치.
 	wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
@@ -21,6 +20,23 @@ mkdir scripts && mv *.sh ./scripts
  	sudo yum install -y rdate
  	rdate -s time.bora.net && clock –w
 
-#계정생성
+#계정생성.
 	adduser wsql
 	useradd -M mysql #home 폴더 없이 생성.
+
+#J-Scan 사전 설치 모듈 다운로드.
+	sudo yum -y install unzip
+	wget https://s3-ap-northeast-1.amazonaws.com/devarchi33-jscan/J-Scan-PreInstall.zip
+	unzip J-Scan-PreInstall.zip
+	sudo tar xvfz mysql-5.6.14.tar.gz
+	sudo tar xvfz httpd-2.4.6.tar.gz
+	sudo tar xvfz php-5.5.5.tar.gz
+	sudo tar xvfz apr-1.4.8.tar.gz
+	sudo tar xvfz apr-util-1.5.2.tar.gz
+
+#파일 정리.
+	mkdir setup && mv *.tar.gz ./setup && rm -rf *.zip && mv *.rpm ./setup
+	mkdir scripts && mv *.sh ./scripts
+
+#MySQL 설치.
+	sudo yum -y install cmake	
