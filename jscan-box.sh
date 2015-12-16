@@ -45,4 +45,5 @@ sudo yum -y update
 
 #MySQL 설치.
 	sudo yum -y install cmake
-	sudo yum install gcc.x86_64 gcc-c++.x86_64 wget.x86_64 bzip2-devel.x86_64 pkgconfig.x86_64 openssl-devel.x86_64 make.x86_64 man.x86_64 nasm.x86_64 gmp.x86_64 gdbm-devel.x86_64 readline-devel.x86_64 compat-readline43.x86_64 ncurses-devel.x86_64 db4-devel.x86_64 automake* autoconf* -y	
+	sudo yum install gcc.x86_64 gcc-c++.x86_64 wget.x86_64 bzip2-devel.x86_64 pkgconfig.x86_64 openssl-devel.x86_64 make.x86_64 man.x86_64 nasm.x86_64 gmp.x86_64 gdbm-devel.x86_64 readline-devel.x86_64 compat-readline43.x86_64 ncurses-devel.x86_64 db4-devel.x86_64 automake* autoconf* -y
+	sudo yum -y install gcc gcc-c++ autoconf automake zlib* fiex* libxml* ncurses-devel libmcrypt* libtool-ltdl-devel* cmake cmake-gui libaio-devel bison-devel make	
