@@ -70,5 +70,6 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get install -y apache2
    sudo chmod 755 jscan-box.sh
    sudo chown vagrant:vagrant jscasn-box.sh
+   ./jscan-box.sh
    SHELL
 end
