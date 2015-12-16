@@ -13,6 +13,7 @@ Vagrant.configure(2) do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "j-scan"
+  config.vm.provision "file", source: "./jscan-box.sh", destination: "jscan-box.sh"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -67,7 +68,7 @@ Vagrant.configure(2) do |config|
    config.vm.provision "shell", inline: <<-SHELL
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
-	sudo yum update
-	mkdir scripts && mv *.sh ./scripts
+   sudo chmod 755 jscan-box.sh
+   sudo chown vagrant:vagrant jscasn-box.sh
    SHELL
 end
