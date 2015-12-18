@@ -1,0 +1,19 @@
+[mysqld]
+socket = /usr/local/mysql/mysql.socket
+key_buffer = 384M
+max_allowed_packet = 16M
+sort_buffer_size = 256M
+read_buffer_size = 256M
+read_rnd_buffer_size = 8M
+join_buffer_size=8M
+thread_cache_size = 8
+query_cache_size = 32M
+# Try number of CPU's*2 for thread_concurrency
+thread_concurrency = 8
+wait_timeout = 31536000
+interactive_timeout = 31536000
+
+sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+datadir=/home/data
+innodb_data_home_dir=/home/data 
+

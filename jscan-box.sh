@@ -44,6 +44,16 @@ sudo yum -y update
 	mkdir scripts && mv *.sh ./scripts
 
 #MySQL 설치.
+	#Build
 	sudo yum -y install cmake
 	sudo yum -y install gcc gcc-c++ autoconf automake zlib* fiex* libxml* ncurses-devel libmcrypt* libtool-ltdl-devel* cmake cmake-gui libaio-devel bison-devel make
-	cd mysql-5.6.14 && sudo cmake -DCMAKE_INSTALL_PREFIX=/usr/local/mysql -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DWITH_EXTRA_CHARSETS=all -DMYSQL_DATADIR=/home/data  -DENABLED_LOCAL_INFILE=1 -DWITH_INNOBASE_STORAGE_ENGINE=1 -DMYSQL_UNIX_ADDR=/usr/local/mysql/mysql.socket && sudo make all && sudo make install	
+	cd mysql-5.6.14 && sudo cmake -DCMAKE_INSTALL_PREFIX=/usr/local/mysql -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DWITH_EXTRA_CHARSETS=all -DMYSQL_DATADIR=/home/data  -DENABLED_LOCAL_INFILE=1 -DWITH_INNOBASE_STORAGE_ENGINE=1 -DMYSQL_UNIX_ADDR=/usr/local/mysql/mysql.socket && sudo make all && sudo make install
+	
+	#Etc
+	sudo chown -R mysql.mysql /usr/local/mysql
+	sudo mkdir /home/data
+	sudo chown -R mysql.mysql /home/data
+	cd /usr/local/mysql && sudo /usr/local/mysql/scripts/mysql_install_db --user=mysql --datadir=/home/data
+   	sudo cp /vagrant/my.cnf-script.txt /usr/local/mysql/my.cnf
+	sudo cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
+	sudo /etc/init.d/mysqld start
