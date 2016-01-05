@@ -54,6 +54,6 @@ sudo yum -y update
 	sudo mkdir /home/data
 	sudo chown -R mysql.mysql /home/data
 	cd /usr/local/mysql && sudo /usr/local/mysql/scripts/mysql_install_db --user=mysql --datadir=/home/data
-   	sudo cp /vagrant/my.cnf-script.txt /usr/local/mysql/my.cnf
+   	sudo cp /vagrant/my.cnf-script.txt /usr/local/mysql/my.cnf  //스크립트만 사용시 /vagrant/ 제거하기.
 	sudo cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
 	sudo /etc/init.d/mysqld start
