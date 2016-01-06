@@ -26,6 +26,7 @@ sudo yum -y update
 
 #J-Scan 사전 설치 모듈 다운로드.
 	sudo yum -y install unzip
+	sudo yum -y install wget
 	wget https://s3-ap-northeast-1.amazonaws.com/devarchi33-jscan/J-Scan-PreInstall.zip
 	unzip J-Scan-PreInstall.zip
 	sudo tar xvfz mysql-5.6.14.tar.gz
